@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="SkeletonScreen.MainPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:state="clr-namespace:Xamarin.Forms.StateSquid;assembly=Xamarin.Forms.StateSquid"
+             ios:Page.UseSafeArea="true">
+    <StackLayout>
+        <StackLayout state:StateLayout.CurrentState="{Binding SkeletonState}">
+            <state:StateLayout.StateViews>
+                <state:StateView StateKey="Loading">
+                    <state:SkeletonView BackgroundColor="#cccccc"
+                                        CornerRadius="6"
+                                        HeightRequest="20"
+                                        HorizontalOptions="Start"
+                                        WidthRequest="190" />
+                </state:StateView>
+            </state:StateLayout.StateViews>
+            <Label Text="Carregamento concluído!" />
+        </StackLayout>
+        <Button
+                BackgroundColor="Navy"
+                Command="{Binding SkeletonCommand}"
+                HeightRequest="40"
+                Text="Ativar Skeleton"
+                TextColor="White" />
+    </StackLayout>
+</ContentPage>
